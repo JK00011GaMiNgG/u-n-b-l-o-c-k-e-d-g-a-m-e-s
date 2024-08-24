@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculator</title>
+	<script src="main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.1.0/math.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.4/brython.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet">
+</head>
+<body onload="brython()">
+	<div class="background" id="background"></div>
+	<div class="game-frame">
+		<div id="button-container">
+			<button onclick="changePage('games/c_a_l_c_u_l_a_t_o_r/index.html', false)">Calculator</button>
+			<button onclick="changePage('games/c_h_e_s_s/index.html', false)">Chess</button>
+			<button onclick="changePage('games/c_o_o_k_i_e_c_l_i_c_k_e_r/index.html', false)">Cookieclicker</button>
+			<button onclick="changeURL('https://m-i-n-e-c-r-a-f-t.netlify.app', true)">Minecraft</button>
+			<button onclick="changeURL('https://s-l-o-p-e.netlify.app', true)">Slope</button>
+			<button onclick="changeURL('https://s-n-o-w-r-i-d-e-r.netlify.app')">Snowrider</button>
+		</div>
+	</div>
+	<script type="text/python">
+		from browser import document, html
+
+		container = document['button-container']
+		for i, button in enumerate(container.select('button'), start=1):
+			if i % 5 == 0:
+				button.after(html.BR())
+	</script>
+</body>
+</html>
