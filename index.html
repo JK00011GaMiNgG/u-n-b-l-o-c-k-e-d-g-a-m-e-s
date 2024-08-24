@@ -10,6 +10,31 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.4/brython.min.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet">
+	<script>
+		function createStars(numStars) {
+			const background = document.getElementById('background');
+			for (let i = 0; i < numStars; i++) {
+				const star = document.createElement('div');
+				star.className = 'star';
+				const size = Math.random() * 3 + 1 + 'px';
+				star.style.width = size;
+				star.style.height = size;
+				star.style.top = Math.random() * 100 + '%';
+				star.style.left = Math.random() * 100 + '%';
+				background.appendChild(star);
+			}
+		}
+		
+		document.addEventListener('mousemove', (event) => {
+			const x = event.clientX / window.innerWidth;
+			const y = event.clientY / window.innerHeight;
+			document.querySelectorAll('.star').forEach(star => {
+				star.style.transform = `translate(-${x * 25}px, -${y * 25}px)`;
+			});
+		});
+		
+		createStars(150);
+	</script>
 </head>
 <body onload="brython()">
 	<div class="background" id="background"></div>
